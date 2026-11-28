@@ -1,0 +1,18 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ActivateNewResponse xmlns="http://www.phonefactor.com/PfPaWs">
+      <ActivateNewResult>true</ActivateNewResult>
+      <activationInfo>
+        <Username>synthetic@example.invalid</Username>
+        <AzureObjectId>00000000-0000-0000-0000-000000000001</AzureObjectId>
+        <TenantId>00000000-0000-0000-0000-000000000002</TenantId>
+        <ConfirmationCode>SYNTHETIC-CONFIRMATION-DO-NOT-USE</ConfirmationCode>
+        <OathTokenSecretKey>SYNTHETIC-SECRET-DO-NOT-USE</OathTokenSecretKey>
+        <OathTokenEnabled>true</OathTokenEnabled>
+        <RoutingHint>SYNTHETIC-ROUTE</RoutingHint>
+        <ReplicationScope>SYNTHETIC-SCOPE</ReplicationScope>
+        <CountryCode>ZZ</CountryCode>
+      </activationInfo>
+    </ActivateNewResponse>
+  </soap:Body>
+</soap:Envelope>

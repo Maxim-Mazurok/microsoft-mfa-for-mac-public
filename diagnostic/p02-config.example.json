@@ -1,0 +1,8 @@
+{
+  "owned_project_confirmed": false,
+  "project_id": "REPLACE_WITH_OWN_PROJECT_ID",
+  "sender_id": "REPLACE_WITH_OWN_PROJECT_NUMBER",
+  "app_id": "REPLACE_WITH_OWN_ANDROID_MOBILESDK_APP_ID",
+  "api_key": "REPLACE_WITH_OWN_FIREBASE_CURRENT_KEY",
+  "certificate_sha1": "REPLACE_WITH_OWN_CERTIFICATE_SHA1_WITHOUT_COLONS"
+}

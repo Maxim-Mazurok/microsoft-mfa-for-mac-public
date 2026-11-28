@@ -1,0 +1,1 @@
+phonefactor://activate_account?code=SYNTHETIC-NOT-A-REAL-ENROLLMENT&url=https%3A%2F%2Fmobileappcommunicator.auth.microsoft.com%2Factivate

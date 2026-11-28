@@ -1,0 +1,19 @@
+{
+  "purpose": "Project-owned diagnostic modules, pinned to the sanitized publication snapshot. These hashes describe publication source, not historical live executions. No vendor CLI is invoked by the product runtime.",
+  "sha256": {
+    "diagnostic/mfa_protocol.py": "0e2467d1d3c59a7e3102490660024afd6c2dc162e4dc24955a49fb59b866cb6e",
+    "diagnostic/approval_protocol.py": "c1b8e042e36cc7711323f6df4b30fc69d51c420cfc25861fe7308291174a2711",
+    "diagnostic/auth_request.py": "58d2c5e2c66f73745165e53ffd728a376b675c0f9f8c2a34a463c6e2d4a79c53",
+    "diagnostic/research_runtime.py": "6d96d8b95f7ccb6e85a67b9a473e16d803149d5c5c8aba44a4c965f5cda4ba80",
+    "diagnostic/e01.py": "2205c20293fbd15160993ce5cc472c532249d3934162232072b280ea0755ff80",
+    "diagnostic/p01.py": "cbcd34c6a8e8a12628d7068ae21dd973f86f4c1bbc757a6431b894895c3baf5c",
+    "diagnostic/p02_prepare.py": "44f1a432fc651ceaed47b73982e4f969fd99a62e1331619433816146bef3a013",
+    "diagnostic/e02.py": "ed93672b6cb18299d4fd57839728a2ff8aeaff4fc7dada005285cdee753f5674",
+    "diagnostic/p02.py": "46d0527cd710952ebcb3ad1e7d74e40e92dc30c6911abd0f4a97de76ab156de0",
+    "diagnostic/p03.py": "6b174478f03fa9d9837b59ed63fe470bc8b1a13a0dd6e87b7090c33e4738b125",
+    "diagnostic/enrollment_protocol.py": "15426d0d612fd34afb8af1ca3b5ddc6b3e4e65e8726fe3d7f9130f713abfecf3",
+    "diagnostic/push_protocol.py": "55e7cf023cbda3cdcc61a9f069d00b2c09ca32522d6dc7277706af03527d3891",
+    "diagnostic/request_expiry.py": "8d8f19e7e378fe89ee82777e6acaf2c4b843c12036b5eeaa2067705b762fb79b",
+    "diagnostic/mfa_transport.py": "5d45654a671588a2cba9aeeaa235e51d4c22a33dd5ca902d56321087a351955b"
+  }
+}

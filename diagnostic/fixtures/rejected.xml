@@ -1,0 +1,8 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Body>
+    <p:ActivateNewResponse xmlns:p="http://www.phonefactor.com/PfPaWs">
+      <p:ActivateNewResult>false</p:ActivateNewResult>
+      <p:error><p:Code>4242</p:Code><p:Description>SYNTHETIC error echoes a secret: DO-NOT-LOG-ME</p:Description></p:error>
+    </p:ActivateNewResponse>
+  </s:Body>
+</s:Envelope>

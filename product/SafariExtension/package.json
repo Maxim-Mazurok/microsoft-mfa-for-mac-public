@@ -1,0 +1,10 @@
+{
+  "name": "microsoft-mfa-mac-safari",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Offline synthetic tests for the Safari integration; no runtime npm dependency",
+  "scripts": {"test": "node --test tests/extension.test.cjs"},
+  "devDependencies": {
+    "jsdom": "^27.4.0"
+  }
+}

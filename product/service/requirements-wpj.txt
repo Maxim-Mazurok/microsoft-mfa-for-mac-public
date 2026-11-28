@@ -1,0 +1,2 @@
+# Isolated research environment; not added to the working product runtime.
+cryptography==50.0.2

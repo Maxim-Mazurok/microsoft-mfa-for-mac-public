@@ -1,0 +1,57 @@
+name: MicrosoftMFAForMac
+options:
+  deploymentTarget:
+    macOS: "15.4"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    CODE_SIGN_STYLE: Manual
+    CODE_SIGN_IDENTITY: "-"
+    CODE_SIGNING_ALLOWED: YES
+    CODE_SIGNING_REQUIRED: NO
+    DEVELOPMENT_TEAM: ""
+    ENABLE_HARDENED_RUNTIME: NO
+    CODE_SIGN_INJECT_BASE_ENTITLEMENTS: NO
+    GENERATE_INFOPLIST_FILE: NO
+    PRODUCT_NAME: "$(TARGET_NAME)"
+    MACOSX_DEPLOYMENT_TARGET: "15.4"
+    MFA_BRIDGE_MODE: app-group
+targets:
+  Microsoft MFA for Mac:
+    type: application
+    platform: macOS
+    sources:
+      - path: macOS
+        excludes: [Tests, Package.swift, README.md, .build, Info.plist, App.entitlements, DevelopmentApp.entitlements]
+      - path: build/Runtime
+        type: folder
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: org.example.microsoftmfamac
+        INFOPLIST_FILE: macOS/Info.plist
+        CODE_SIGN_ENTITLEMENTS: macOS/App.entitlements
+        MFA_DEVELOPMENT_PYTHON: /opt/homebrew/bin/python3
+    dependencies:
+      - target: MicrosoftMFASafariExtension
+        embed: true
+    scheme:
+      gatherCoverageData: false
+  MicrosoftMFASafariExtension:
+    type: app-extension
+    platform: macOS
+    sources:
+      - path: SafariExtension
+        excludes: [Resources, Info.plist, Extension.entitlements, Development.entitlements, README.md, tests, node_modules, package.json, package-lock.json]
+      - path: SafariExtension/Resources
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: org.example.microsoftmfamac.SafariExtension
+        PRODUCT_NAME: SafariExtension
+        MACOSX_DEPLOYMENT_TARGET: "15.4"
+        INFOPLIST_FILE: SafariExtension/Info.plist
+        CODE_SIGN_ENTITLEMENTS: SafariExtension/Extension.entitlements
+        SKIP_INSTALL: YES
+        APPLICATION_EXTENSION_API_ONLY: YES

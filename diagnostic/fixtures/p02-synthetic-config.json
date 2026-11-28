@@ -1,0 +1,8 @@
+{
+  "owned_project_confirmed": true,
+  "project_id": "synthetic-p02-project",
+  "sender_id": "123",
+  "app_id": "1:123:android:abcd",
+  "api_key": "synthetic-api-key",
+  "certificate_sha1": "abababababababababababababababababababab"
+}

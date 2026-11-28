@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>Microsoft MFA for Mac — synthetic DOM checks</title>
+<style>body {font:16px system-ui;max-width:720px;margin:4rem auto;padding:0 2rem;color:#172333;background:#f4f6f8} button {font:inherit;padding:.6rem 1rem} #fixture {background:white;padding:1rem;margin:1rem 0} #idRichContext_DisplaySign {font-size:36px;font-weight:700} pre {white-space:pre-wrap}</style>
+<h1>Synthetic browser checks</h1>
+<p>This local fixture tests the extension's DOM reader in a rendering engine. It does not connect to Microsoft, approve a request, or establish Safari compatibility.</p>
+<button id="run">Run DOM checks</button><div id="fixture"></div><pre id="result" aria-live="polite">Not run.</pre>
+<script src="../SafariExtension/Resources/core.js"></script>
+<script>
+"use strict";
+const synthetic = {account:"synthetic@example.invalid",session_id:"11111111-1111-4111-8111-111111111111",number:"42"};
+function reset() {document.querySelector("#fixture").innerHTML = '<div id="displayName">synthetic@example.invalid</div><div id="idRichContext_DisplaySign">42</div><div id="appDisplayName">Synthetic app</div>';}
+function runDOMChecks() {
+  const results = [];
+  function check(name, setup, expected) {
+    reset(); setup(); const value = MFAMac.readPage(document, synthetic);
+    results.push({test:name,passed: expected ? !!value && value.number === "42" && value.account === synthetic.account : value === null});
+  }
+  check("visible_exact_context",()=>{},true);
+  check("display_none_number",()=>{document.querySelector("#idRichContext_DisplaySign").style.display="none"},false);
+  check("visibility_hidden_number",()=>{document.querySelector("#idRichContext_DisplaySign").style.visibility="hidden"},false);
+  check("opacity_zero_number",()=>{document.querySelector("#idRichContext_DisplaySign").style.opacity="0"},false);
+  check("hidden_parent",()=>{document.querySelector("#fixture").hidden=true},false); document.querySelector("#fixture").hidden=false;
+  check("aria_hidden_parent",()=>{document.querySelector("#fixture").setAttribute("aria-hidden","true")},false); document.querySelector("#fixture").removeAttribute("aria-hidden");
+  check("conflicting_visible_accounts",()=>{const v=document.createElement("div"); v.dataset.testid="user-display-name";v.textContent="other@example.invalid";document.querySelector("#fixture").append(v)},false);
+  check("wrong_number",()=>{document.querySelector("#idRichContext_DisplaySign").textContent="43"},false);
+  check("wrong_account",()=>{document.querySelector("#displayName").textContent="other@example.invalid"},false);
+  check("no_number",()=>{document.querySelector("#idRichContext_DisplaySign").remove()},false);
+  check("duplicate_conflicting_numbers",()=>{const v=document.createElement("div");v.id="idRichContext_DisplaySign";v.textContent="43";document.querySelector("#fixture").append(v)},false);
+  check("hidden_account_uses_exact_protocol_metadata",()=>{document.querySelector("#displayName").style.display="none"},true);
+  reset(); const report={synthetic_only:true,external_requests:0,checks:results.length,passed:results.filter(x=>x.passed).length,failures:results.filter(x=>!x.passed).map(x=>x.test)};
+  document.querySelector("#result").textContent=JSON.stringify(report,null,2); return report;
+}
+document.querySelector("#run").addEventListener("click",runDOMChecks);reset();
+</script></html>

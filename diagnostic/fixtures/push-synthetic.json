@@ -1,0 +1,13 @@
+{
+  "provenance": "Hand-authored synthetic values; no provider or enrollment traffic.",
+  "checkin_response_hex": "0801390807060504030201411817161514131291",
+  "mcs_login_success_hex": "2903020a00",
+  "mcs_login_rejected_hex": "2903060a001a020801",
+  "mcs_data_hex": "29081f1a033132332a05782e6170703a090a03666f6f12026f6b4a067069642d3031",
+  "fis": {
+    "name": "projects/synthetic-project/installations/cAAAAAAAAAAAAAAAAAAAAA",
+    "fid": "cAAAAAAAAAAAAAAAAAAAAA",
+    "refreshToken": "synthetic-refresh-secret",
+    "authToken": {"token": "synthetic-fis-auth-secret", "expiresIn": "604800s"}
+  }
+}

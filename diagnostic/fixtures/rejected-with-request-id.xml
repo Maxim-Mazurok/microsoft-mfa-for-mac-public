@@ -1,0 +1,14 @@
+<!-- Entirely synthetic fixture; no live response text or identifiers. -->
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Body>
+    <p:ActivateNewResponse xmlns:p="http://www.phonefactor.com/PfPaWs">
+      <p:ActivateNewResult>false</p:ActivateNewResult>
+      <p:activationInfo>
+        <p:ConfirmationCode>SYNTHETIC-CONFIRMATION-DO-NOT-USE</p:ConfirmationCode>
+        <p:OathTokenEnabled>true</p:OathTokenEnabled>
+      </p:activationInfo>
+      <p:error><p:Code>15</p:Code><p:Description>SYNTHETIC failure text: DO-NOT-LOG-ME</p:Description></p:error>
+    </p:ActivateNewResponse>
+    <s:RequestId>SYNTHETIC-REQUEST-ID-DO-NOT-PRINT</s:RequestId>
+  </s:Body>
+</s:Envelope>

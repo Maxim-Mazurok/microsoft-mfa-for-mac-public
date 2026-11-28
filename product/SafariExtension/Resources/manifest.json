@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Microsoft MFA for Mac",
+  "version": "0.1.0",
+  "description": "Connect a Microsoft number-match page to your local Mac authenticator.",
+  "permissions": ["nativeMessaging", "storage"],
+  "host_permissions": ["https://login.microsoftonline.com/*", "https://login.microsoft.com/*", "https://login.windows.net/*"],
+  "background": {"scripts": ["core.js", "background.js"], "persistent": false},
+  "content_scripts": [
+    {"matches": ["https://login.microsoftonline.com/*", "https://login.microsoft.com/*", "https://login.windows.net/*"], "js": ["page-hook.js"], "run_at": "document_start", "world": "MAIN", "all_frames": false},
+    {"matches": ["https://login.microsoftonline.com/*", "https://login.microsoft.com/*", "https://login.windows.net/*"], "js": ["core.js", "content.js"], "run_at": "document_start", "all_frames": false}
+  ],
+  "action": {"default_title": "Microsoft MFA for Mac", "default_popup": "popup.html"},
+  "content_security_policy": {"extension_pages": "script-src 'self'; object-src 'none'"}
+}
